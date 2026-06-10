@@ -9,6 +9,7 @@ export default function HeroFigure() {
                     alt={'Interior de Stratos'}
                     src={HeroImage}
                     className="size-full object-cover object-center"
+                    loading="eager"
                 />
             </div>
         </div>

@@ -1,3 +1,4 @@
+import FeaturedProduct from "@/components/FeaturedProduct";
 import Header from "@/components/Header";
 import HeaderBrand from "@/components/HeaderBrand";
 import HeaderHamburger from "@/components/HeaderHamburger";
@@ -6,6 +7,9 @@ import Hero from "@/components/Hero";
 import HeroContent from "@/components/HeroContent";
 import HeroFigure from "@/components/HeroFigure";
 import Main from "@/components/Main";
+import ProductGrid from "@/components/ProductGrid";
+import Products from "@/components/Products";
+import ProductsHeading from "@/components/ProductsHeading";
 
 export default function Home() {
     return (
@@ -20,6 +24,12 @@ export default function Home() {
                     <HeroContent />
                     <HeroFigure />
                 </Hero>
+                <Products>
+                    <ProductsHeading />
+                    <ProductGrid>
+                        <FeaturedProduct />
+                    </ProductGrid>
+                </Products>
             </Main>
         </>
     );
