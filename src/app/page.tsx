@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import HeroContent from "@/components/HeroContent";
 import HeroFigure from "@/components/HeroFigure";
 import Main from "@/components/Main";
+import ProductBanner from "@/components/ProductBanner";
 import ProductGrid from "@/components/ProductGrid";
 import ProductList from "@/components/ProductList";
 import Products from "@/components/Products";
@@ -30,6 +31,7 @@ export default function Home() {
                     <ProductGrid>
                         <FeaturedProduct />
                         <ProductList />
+                        <ProductBanner />
                     </ProductGrid>
                 </Products>
             </Main>
