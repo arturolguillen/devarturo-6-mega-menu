@@ -3,3 +3,28 @@
 @theme inline {
     --font-sans: var(--font-plus-jakarta-sans);
 }
+
+@layer base {
+    button {
+        @apply cursor-pointer;
+    }
+}
+
+@layer components {
+    .hamburger-line {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    
+    @variant md {
+        padding-inline: 2.5rem;
+    }
+
+    @variant xl {
+        max-width: 90rem;
+    }
+}
