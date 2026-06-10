@@ -12,6 +12,10 @@ import ProductGrid from "@/components/ProductGrid";
 import ProductList from "@/components/ProductList";
 import Products from "@/components/Products";
 import ProductsHeading from "@/components/ProductsHeading";
+import SideNavigation from "@/components/SideNavigation";
+import SideNavigationBody from "@/components/SideNavigationBody";
+import SideNavigationHeader from "@/components/SideNavigationHeader";
+import SideNavigationMenu from "@/components/SideNavigationMenu";
 
 export default function Home() {
     return (
@@ -21,6 +25,12 @@ export default function Home() {
                 <HeaderBrand />
                 <HeaderIcons />
             </Header>
+            <SideNavigation>
+                <SideNavigationBody>
+                    <SideNavigationHeader />
+                    <SideNavigationMenu />
+                </SideNavigationBody>
+            </SideNavigation>
             <Main>
                 <Hero>
                     <HeroContent />
