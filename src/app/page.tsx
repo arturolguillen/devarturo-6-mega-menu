@@ -17,6 +17,7 @@ import SideNavigationBody from "@/components/SideNavigationBody";
 import SideNavigationFooter from "@/components/SideNavigationFooter";
 import SideNavigationHeader from "@/components/SideNavigationHeader";
 import SideNavigationMenu from "@/components/SideNavigationMenu";
+import SideNavigationPreviewPanel from "@/components/SideNavigationPreviewPanel";
 
 export default function Home() {
     return (
@@ -32,6 +33,7 @@ export default function Home() {
                     <SideNavigationMenu />
                     <SideNavigationFooter />
                 </SideNavigationBody>
+                <SideNavigationPreviewPanel />
             </SideNavigation>
             <Main>
                 <Hero>
