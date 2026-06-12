@@ -35,36 +35,41 @@ const categoryMenuItems = [
     },
 ];
 
+const menuItemClassnames = 'group flex items-baseline gap-4';
+const menuItemInnerClassnames = 'text-3xl md:text-4xl font-bold tracking-tight group-hover:translate-x-2 transition-transform';
+
 export default function SideNavigationMenu() {
     return (
-        <nav>
-            <Link href={'#'}>
-                <span>{menuItems[0].text}</span>
+        <nav className="flex flex-col gap-8">
+            <Link href={'#'} className={`nav-item-stagger ${menuItemClassnames}`}>
+                <span className={`${menuItemInnerClassnames}`}>{menuItems[0].text}</span>
             </Link>
-            <div>
-                <button type="button">
-                    <span>{'Categorías'}</span>
+            <div className="nav-item-stagger group">
+                <button type="button" className="flex items-baseline gap-4 w-full text-left" id="category-trigger">
+                    <span className="text-3xl md:text-4xl font-bold tracking-tight group-hover:translate-x-2 transition-transform">{'Categorías'}</span>
                     <ChevronDown />
                 </button>
-                <div>
+                <div className="hidden flex-col gap-4 mt-6 ml-4 border-l-2 border-zinc-100 pl-6" id="category-list">
                     {categoryMenuItems.map(item => (
                         <Link
                             key={item.id}
                             href={'#'}
+                            className="text-lg text-zinc-500 hover:text-zinc-900"
                         >
                             {item.text}
                         </Link>
                     ))}
                 </div>
-                {menuItems.slice(-2).map(item => (
-                    <Link
-                        key={item.id}
-                        href={'#'}
-                    >
-                        <span>{item.text}</span>
-                    </Link>
-                ))}
             </div>
+            {menuItems.slice(-2).map(item => (
+                <Link
+                    key={item.id}
+                    href={'#'}
+                    className={`nav-item-stagger ${menuItemClassnames}`}
+                >
+                    <span className={`${menuItemInnerClassnames}`}>{item.text}</span>
+                </Link>
+            ))}
         </nav>
     );
 }
