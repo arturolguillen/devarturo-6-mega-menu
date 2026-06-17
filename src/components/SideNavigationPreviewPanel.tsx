@@ -9,6 +9,7 @@ export default function SideNavigationPreviewPanel() {
                 src={MegaMenuCoverImage}
                 alt={'Editorial de Moda'}
                 className="absolute inset-0 w-full h-full object-cover object-top"
+                loading="eager"
             />
             <div className="absolute inset-0 bg-linear-to-r from-white via-transparent to-transparent"></div>
             <div className="relative z-10 p-24 flex flex-col justify-center max-w-lg">

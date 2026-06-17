@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 const socialMediaLinks = [
     {
@@ -15,6 +16,12 @@ const socialMediaLinks = [
     },
 ];
 
+function staggerDelay(delayMs: number): CSSProperties {
+    return {
+        "--nav-stagger-delay": `${delayMs}ms`,
+    } as CSSProperties;
+}
+
 export default function SideNavigationFooter() {
     const date = new Date;
 
@@ -25,13 +32,14 @@ export default function SideNavigationFooter() {
                     <Link
                         key={item.id}
                         href={'#'}
-                        className="nav-item-stagger text-sm font-semibold text-zinc-400 hover:text-zinc-900 transition-colors"
+                        className="nav-item-stagger text-sm font-semibold text-zinc-400 hover:text-zinc-900"
+                        style={staggerDelay(240 + (item.id - 1) * 60)}
                     >
                         {item.text}
                     </Link>
                 ))}
             </div>
-            <p className="nav-item-stagger text-xs text-zinc-400">
+            <p className="nav-item-stagger text-xs text-zinc-400" style={staggerDelay(420)}>
                 &copy; {`${date.getFullYear()} Ecosistema de Marca Stratos.`}
             </p>
         </div>

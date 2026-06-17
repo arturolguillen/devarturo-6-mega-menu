@@ -15,11 +15,36 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* .nav-item-stagger {
+    .hamburger-line {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .is-open .line-1 {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .is-open .line-2 {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    .is-open .line-3 {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Staggered Navigation Items */
+    .nav-item-stagger {
         opacity: 0;
         transform: translateY(20px);
-        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    } */
+        transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: 0ms;
+    }
+
+    .is-open-menu .nav-item-stagger {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: calc(180ms + var(--nav-stagger-delay, 0ms));
+    }
 }
 
 @utility container {

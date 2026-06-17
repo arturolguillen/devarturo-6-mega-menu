@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 const menuItems = [
     {
@@ -38,13 +39,19 @@ const categoryMenuItems = [
 const menuItemClassnames = 'group flex items-baseline gap-4';
 const menuItemInnerClassnames = 'text-3xl md:text-4xl font-bold tracking-tight group-hover:translate-x-2 transition-transform';
 
+function staggerDelay(delayMs: number): CSSProperties {
+    return {
+        "--nav-stagger-delay": `${delayMs}ms`,
+    } as CSSProperties;
+}
+
 export default function SideNavigationMenu() {
     return (
         <nav className="flex flex-col gap-8">
-            <Link href={'#'} className={`nav-item-stagger ${menuItemClassnames}`}>
+            <Link href={'#'} className={`nav-item-stagger ${menuItemClassnames}`} style={staggerDelay(0)}>
                 <span className={`${menuItemInnerClassnames}`}>{menuItems[0].text}</span>
             </Link>
-            <div className="nav-item-stagger group">
+            <div className="nav-item-stagger group" style={staggerDelay(60)}>
                 <button type="button" className="flex items-baseline gap-4 w-full text-left" id="category-trigger">
                     <span className="text-3xl md:text-4xl font-bold tracking-tight group-hover:translate-x-2 transition-transform">{'Categorías'}</span>
                     <ChevronDown />
@@ -66,6 +73,7 @@ export default function SideNavigationMenu() {
                     key={item.id}
                     href={'#'}
                     className={`nav-item-stagger ${menuItemClassnames}`}
+                    style={staggerDelay(item.id === 2 ? 120 : 180)}
                 >
                     <span className={`${menuItemInnerClassnames}`}>{item.text}</span>
                 </Link>

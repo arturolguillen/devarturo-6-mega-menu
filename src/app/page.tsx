@@ -12,6 +12,7 @@ import ProductGrid from "@/components/ProductGrid";
 import ProductList from "@/components/ProductList";
 import Products from "@/components/Products";
 import ProductsHeading from "@/components/ProductsHeading";
+import NavigationProvider from "@/components/NavigationContext";
 import SideNavigation from "@/components/SideNavigation";
 import SideNavigationBody from "@/components/SideNavigationBody";
 import SideNavigationFooter from "@/components/SideNavigationFooter";
@@ -22,19 +23,21 @@ import SideNavigationPreviewPanel from "@/components/SideNavigationPreviewPanel"
 export default function Home() {
     return (
         <>
-            <Header>
-                <HeaderHamburger />
-                <HeaderBrand />
-                <HeaderIcons />
-            </Header>
-            <SideNavigation>
-                <SideNavigationBody>
-                    <SideNavigationHeader />
-                    <SideNavigationMenu />
-                    <SideNavigationFooter />
-                </SideNavigationBody>
-                <SideNavigationPreviewPanel />
-            </SideNavigation>
+            <NavigationProvider>
+                <Header>
+                    <HeaderHamburger />
+                    <HeaderBrand />
+                    <HeaderIcons />
+                </Header>
+                <SideNavigation>
+                    <SideNavigationBody>
+                        <SideNavigationHeader />
+                        <SideNavigationMenu />
+                        <SideNavigationFooter />
+                    </SideNavigationBody>
+                    <SideNavigationPreviewPanel />
+                </SideNavigation>
+            </NavigationProvider>
             <Main>
                 <Hero>
                     <HeroContent />
