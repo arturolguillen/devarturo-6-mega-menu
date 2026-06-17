@@ -1,6 +1,9 @@
-import { ChevronDown } from "lucide-react";
+"use client";
+
+import clsx from "clsx";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 
 const menuItems = [
     {
@@ -46,17 +49,27 @@ function staggerDelay(delayMs: number): CSSProperties {
 }
 
 export default function SideNavigationMenu() {
+    const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
+
     return (
         <nav className="flex flex-col gap-8">
             <Link href={'#'} className={`nav-item-stagger ${menuItemClassnames}`} style={staggerDelay(0)}>
                 <span className={`${menuItemInnerClassnames}`}>{menuItems[0].text}</span>
             </Link>
             <div className="nav-item-stagger group" style={staggerDelay(60)}>
-                <button type="button" className="flex items-baseline gap-4 w-full text-left" id="category-trigger">
+                <button
+                    type="button"
+                    className="flex items-baseline gap-4 w-full text-left"
+                    onClick={() => setSubmenuOpen(!submenuOpen)}
+                >
                     <span className="text-3xl md:text-4xl font-bold tracking-tight group-hover:translate-x-2 transition-transform">{'Categorías'}</span>
-                    <ChevronDown />
+                    {submenuOpen ? <ChevronUp className="text-zinc-300" /> : <ChevronDown className="text-zinc-300" />}
                 </button>
-                <div className="hidden flex-col gap-4 mt-6 ml-4 border-l-2 border-zinc-100 pl-6" id="category-list">
+                <div className={clsx({
+                    'flex-col gap-4 mt-6 ml-4 border-l-2 border-zinc-100 pl-6': true,
+                    'flex': submenuOpen,
+                    'hidden': !submenuOpen
+                })}>
                     {categoryMenuItems.map(item => (
                         <Link
                             key={item.id}

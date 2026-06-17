@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type NavigationContextValue = {
     isOpen: boolean;
@@ -14,6 +14,14 @@ export default function NavigationProvider({ children }: {
     children: React.ReactNode;
 }) {
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? "hidden" : "";
+
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
 
     const toggleMenu = () => {
         setIsOpen(currentIsOpen => !currentIsOpen);
